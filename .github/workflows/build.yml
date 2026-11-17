@@ -15,11 +15,14 @@ jobs:
       - name: Descargar proyecto
         uses: actions/checkout@v4
 
-      - name: Instalar Java
-        uses: actions/setup-java@v4
+      - name: Configurar Java
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 17
+
+      - name: Configurar Gradle
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Compilar APK
         run: gradle assembleDebug
